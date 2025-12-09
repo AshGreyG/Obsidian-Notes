@@ -183,10 +183,10 @@ date: 2025-12-01
   + Important example: $T(n) = 2 T(n / 2) + n\log n$. We have $a=2$ and $b=2$,
     $f(n) = n\log n$. The problem is that $f$ is not **polynomially** larger than
     $n$. The ratio $f/n^{\log_b a} = \log n$ is asymptotically less than
-    $n^\epsilon$ for any positive constant $\epsilon > 0$. So the time complexity
-    is $\Theta(n \log n)$.
+    $n^\epsilon$ for any positive constant $\epsilon > 0$. Actually the time
+    complexity is $\Theta(n \log^2 n)$.
 
-+ [ ] Proof of master theorem: This proof appears in two parts. The first part
++ [o] Proof of master theorem: This proof appears in two parts. The first part
   analyzes the master recurrence under the simplifying assumption that $T(n)$ is
   defined only on exact power of $b$ like $n = 1,b,b^2,\cdots$. The second part
   shows how to extend the analysis to all positive integers $n$.
@@ -376,10 +376,33 @@ date: 2025-12-01
         \right)^{\log_b a - \epsilon} \\
         & = c\left(\frac{n}{b^j}\left(1 + \frac{b^j}{n}
           \frac{b}{b-1}\right)\right)^{\log_b a - \epsilon} \\
-        & = c \frac{n^{\log_b a}}{a^j} \left(1 + \frac{b^j}{n}
-          \frac{b}{b-1}\right)^{\log_b a - \epsilon} \\
+        & = c \left(\frac{n}{b^j}\right)^{\log_b a - \epsilon} 
+          \left(1 + \frac{b^j}{n} \frac{b}{b-1}\right)^{\log_b a - \epsilon} \\
         & \le c\left(1 + \frac{b}{b - 1}\right)^{\log_b a - \epsilon}
-          \frac{n^{\log_b a}}{a^j} \\
+          \left(\frac{n}{b^j}\right)^{\log_b a - \epsilon} \\
         & = O((n/b^j)^{\log_b a - \epsilon})
     \end{aligned}
     $$
+
++ [ ] A special case of master theorem, if $f(n) = \Theta(n^{\log_b a}\log^k n)$,
+  then the master recurrence has solution $T(n) = \Theta(n^{\log_b a}\log^{k+1}n)$.
+
+  *Proof :* This proof needs Bernoulli's inequality:
+
+  $$
+  \begin{aligned}
+    k(n) & = \sum_{j=0}^{\log_b n - 1} a^j \left(\frac{n}{b^j}\right)
+      ^{\log_b a}\left(\log\left(\frac{n}{b^j}\right)\right)^k \\
+      & = n^{\log_b a} \sum_{j=0}^{\log_b n - 1} a^j a^{-j}(\log n)^k
+        \left(\log\left(\frac{n}{b^j}\right)\big/\log n\right)^k \\
+      & = n^{\log_b a} \log^k n \sum_{j=0}^{\log_b n - 1}
+        \left(1-\frac{j\log b}{\log n}\right)^k \\
+      & > n^{\log_b a} \log^k n \sum_{j=0}^{\log_b n - 1}
+        \left(1 - kj\frac{\log b}{\log n}\right) \\
+      & = n^{\log_b a} \log^k n \left[\log_b n - k\frac{\log b}{\log n}
+        \left(\frac{\log_b n(\log_b n - 1)}{2}\right)\right] \\
+      & = n^{\log_b a} \log^k n \left[\log_b n - k
+        \left(\frac{\log_b n - 1}{2}\right)\right] \\
+      & = \Theta(n^{\log_b a}\log^{k + 1}n)
+  \end{aligned}
+  $$

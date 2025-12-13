@@ -14,7 +14,7 @@ date: 2025-12-01
 
     $$
       \Theta(g(n)) := \{ f \mid
-        \exist c_1, c_2 \in \mathbb{R}, n_0 \in \mathbb{N},
+        \exists c_1, c_2 \in \mathbb{R}, n_0 \in \mathbb{N},
         \forall n > n_0, \\
         0 < c_1 g(n) \le f(n) \le c_2 g(n) \}
     $$
@@ -23,7 +23,7 @@ date: 2025-12-01
 
     $$
       O(g(n)) := \{ f \mid 
-        \exist c_1 \in \mathbb{R}, n_0 \in \mathbb{N},
+        \exists c_1 \in \mathbb{R}, n_0 \in \mathbb{N},
         \forall n > n_0, \\
         0 < f(n) \le c_1 g(n) \}
     $$
@@ -32,7 +32,7 @@ date: 2025-12-01
 
     $$
       \Omega(g(n)) := \{ f \mid 
-        \exist c_1 \in \mathbb{R}, n_0 \in \mathbb{N},
+        \exists c_1 \in \mathbb{R}, n_0 \in \mathbb{N},
         \forall n > n_0, \\
         0 < c_1 g(n) \le f(n) \}
     $$

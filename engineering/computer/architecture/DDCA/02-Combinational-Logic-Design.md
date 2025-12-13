@@ -128,8 +128,8 @@ time: 2025-11-23
   derived from De Morgan's theorem 
   and it says that a NOR gate equals to two INV gates and an and
   gate. The inversion circles bubble from output to inputs
-+ [o] Symbol X, contention p.95: **illegal value** or unkown
-+ [o] Symbol Z, floating, bigb impedance p.96: **floating**
++ [o] Symbol X, contention p.95: **illegal value** or unknown
++ [o] Symbol Z, floating, big impedance p.96: **floating**
   + [i] tristate buffer
     <div style="display: flex; justify-content: space-between">
       <img
@@ -157,12 +157,18 @@ time: 2025-11-23
   `000 -> 001 -> 011 -> 010 -> 110 -> 111 -> 101 -> 100`
 + [i] The order of karnaugh maps rows p.98
   In gray code order of **low digits**, only change for one bit
-+ [ ] **How to draw karnaugh maps and find the minimized expression**
++ [i] **How to draw karnaugh maps and find the minimized expression**
   1. Use the fewest circles necessary to cover all the $1$'s
   2. All the squares in each circle must contain $1$'s
   3. Each circle must span a rectangular block that is the power
     of $2$ like $1, 2, 4, 8$ squares in **each direction**
   4. Each circle should be as large as possible
+  5. A circle may wrap around the edges of the K-map
+  6. A $1$ in a K-map may be circled multiple times if doing so allows fewer
+    circles to be used.
+  7. Some inputs won't affect outputs, they can be denoted as $X$ and it can be
+    $1$ or $0$, used to eliminate boolean variables.
+
     <div style="display: flex; align-items: center; justify-content: center;">
       <img
         src="_assets/image/co-ddca-01-karnaugh-map.png"
@@ -172,20 +178,65 @@ time: 2025-11-23
 
 ## 5 Combinational Building Blocks
 
-+ [ ] What is **multiplexer** p.106
-+ [ ] Use $2^{N - 1}$-input multiplexer to implement XOR and AND
++ [o] What is **multiplexer** p.106
+  + Multiplexer can be used as **lookup tables** to perform logic functions.
+    For example a 4:1 multiplexer has four data inputs and one output, two
+    select signals are needed to choose among the four data inputs.
+
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <img
+        src="_assets/image/co-ddca-01-multiplexer.png"
+        style="width:40%"
+      />
+    </div>
+
++ [o] Use $2^{N - 1}$-input multiplexer to implement XOR and AND
   function (any $N$-input logic functions)
-+ [ ] What is **decoder** p.108
+  + Such as $2$-input AND function can be implemented by `00`, `01`, `10` pins
+    input by $V_{\text{gnd}}$, `11` pin input by $V_{\text{cc}}$.
++ [o] What is **decoder** p.108
+  + A decoder has $N$ inputs and $2^N$ outputs. It asserts exactly one of its
+    outputs depending on the input combination, the outputs are called **one-hot**
+    because exactly one is "hot" (TRUE)
+
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <img
+        src="_assets/image/co-ddca-01-decoder.png"
+        style="width:40%"
+      />
+    </div>
 
 ## 6 Timing
 
-+ [ ] timing p.110
-+ [ ] timing diagram
-  + [ ] rising edge
-  + [ ] falling edge
-+ [ ] **propagation delay** $t_{pd}$
-+ [ ] **contamination delay** $t_{cd}$
-+ [ ] critical path p.111
-+ [ ] short path p.111
-+ [ ] **glitch** with time diagram p.116
-  + [ ] relationship between K-map and glitch
++ [o] timing p.110: making the circuit run fast
++ [o] timing diagram
+  + [o] rising edge: transition from LOW to HIGH
+  + [o] falling edge: transition from HIGH to LOW
++ [o] **propagation delay** $t_{pd}$: the maximum time from when any input changes
+  until the output or outputs reach their final value
++ [o] **contamination delay** $t_{cd}$: the minimum time from when any input
+  changes until any output starts to change its value.
+
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img
+      src="_assets/image/co-ddca-01-delay.png"
+      style="width:40%"
+    />
+  </div>
+
++ [o] critical path p.111: the **longest** and **slowest** path in the circuit
+  from inputs to outputs. This path is critical because it limits the speed at
+  which the circuit operates.
++ [o] short path p.111: the **shortest** and **fastest** path in the circuit.
++ [o] **glitch** with time diagram p.116
+  + It's possible that a single input transition can cause multiple transitions,
+    these are called **glitches** or **hazards**.
+
+    As long as we wait for the propagation delay to elapse before we depend on
+    the output, glitches are not problem.
+
+  + [o] relationship between K-map and glitch: **The transition across the boundary
+    of two prime implicants in the K-map indicates a possible glitch. A glitch
+    can occur when a change in a single variable across the boundary between
+    two prime implicants in a K-map. We can eliminate the glitch by adding 
+    redundant implicants to the K-map to cover these boundaries.**

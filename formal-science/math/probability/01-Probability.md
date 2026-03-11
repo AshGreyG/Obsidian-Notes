@@ -79,3 +79,88 @@ date: 2026-02-27
   $r$ objects and the other cell containing the $(n - r)$ objects that are left.
 
 ## 4 Probability of an Event
+
++ [ ] We consider only those experiments for which the sample space contains
+  a **finite number** of an event resulting from such a statistical experiment
+  is evaluated by means of a set of **real numbers**, called **weights** or
+  **probabilities**.
+
+  The probability of an event $A$ is the sum of the weights of all sample points
+  in $A$. Therefore, $0 \le P(A) \le 1$, $P(\emptyset) = 0$ and $P(\Omega) = 1$.
+
+  If $A_1,A_2,\cdots$ is a sequence of mutually exclusive events, then
+
+  $$
+    P(A_1 \cup A_2 \cup \cdots) = P(A_1) + P(A_2) + \cdots
+  $$
+
++ [ ] If an experiment can result in any one of $N$ different equally likely
+  outcomes, if exactly $n$ of these outcomes correspond to event $A$, then the
+  probability of $A$ is
+
+  $$
+    P(A) = \frac{n}{N}
+  $$
+
+## 5 Additive Rules
+
++ [ ] If $A$ and $B$ and two events then
+
+  $$
+    P(A \cup B) = P(A) + P(B) - P(A \cap B)
+  $$
+
+  and if $A$ and $B$ are mutually exclusive, then $P(A \cup B) = P(A) + P(B)$.
+  Also this theorem can be generalized to multiple events: if $A_1, A_2, \cdots,
+  A_n$ are mutually exclusive then $P(A_1 \cup A_2 \cup \cdots \cup A_n) = 
+  P(A_1) + P(A_2) + \cdots + P(A_n) = P(\Omega) = 1$
+
++ [ ] If $A$ and $\overline{A}$ are complementary events then
+
+  $$
+   P(A) + P(\overline{A}) = 1
+  $$
+
+## 6 Conditional Probability
+
++ [ ] The probability of an event $B$ occurring when it is known that some
+  event $A$ has occurred is called a **conditional probability** and is denoted
+  as $P(B | A)$. The conditional probability of $B$ given $A$ is calculated by
+
+  $$
+    P(B | A) = \frac{P(A \cap B)}{P(A)} = \frac{n(A \cap B)}{n(A)}
+  $$
+
+  here $n(A)$ is the number of elements in any set $A$.
+
++ [ ] Two events $A$ and $B$ are **independent** if and only if
+
+  $$
+    P(B | A) = P(B)
+  $$
+
+  assuming the existences of the conditional probabilities. Otherwise $A$  and
+  $B$ are **dependent**. The occurrence of $A$ has no impact on the odds of
+  occurrence of $B$.
+
++ [ ] If in an experiment the events $A$ and $B$ can both occur, then
+
+  $$
+    P(A \cap B) = P(A) \cdot P(B | A)
+  $$
+
+  so the two events $A$ and $B$ are independent if and only $P(A \cap B) =
+  P(A) P(B)$
+
++ [ ] If in an experiment the events $A_1, A_2, \cdots, A_k$ can occur, then
+
+  $$
+  \begin{aligned}
+    P(A_1 & \cap A_2 \cap \cdots \cap A_k) \\
+      & = P(A_1) \cdot P(A_2 | A_1) \cdot P(A_3 | A_1 \cap A_2) \cdots
+      P(A_k | A_1 \cap A_2 \cap \cdots \cap A_{k-1})
+  \end{aligned}
+  $$
+
+  so the events $A_1,A_2, \cdots, A_k$ are independent then $P(A_1 \cap A_2
+  \cap \cdots \cap A_k) = P(A_1) \cdot P(A_2) \cdots P(A_k)$

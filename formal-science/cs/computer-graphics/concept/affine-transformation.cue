@@ -43,6 +43,7 @@ affine_transformation: {
     before the scale.
   """#
   related: [
-    "concept/homogeneous-coordinate"
+    "concept/homogeneous-coordinate",
+    "concept/transformation-matrices",
   ]
 }

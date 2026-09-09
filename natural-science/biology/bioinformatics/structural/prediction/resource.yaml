@@ -22,16 +22,16 @@ textbooks:
 tests:
   null
 papers:
-  - id: "snac-db"
+  - id: "2026-05-snac-db"
     title: "SNAC-DB: An ML-ready database for antibody and NANOBODY® VHH–antigen complexes with expanded structural diversity and real-world benchmarking"
     journal: "The Protein Society"
     doi: "https://doi.org/10.1002/pro.70655"
     date: "2026-05-15"
     completed: false
     order:
-      desire:
-        - "snac-db-2026-limitation"
-  - id: "sabdab2"
+      limitation:
+        - "2026-05-snac-db-limitation"
+  - id: "2026-06-sabdab2"
     title: "SAbDab2: The structural antibody database in the age of machine learning"
     journal: "biorxiv"
     doi: "https://doi.org/10.64898/2026.06.16.732554"
@@ -39,8 +39,8 @@ papers:
     completed: false
     order:
       desire:
-        - "sabdab2-2026-desire"
+        - "2026-06-sabdab2-desire"
       result:
-        - "sabdab2-result-database"
+        - "2026-06-sabdab2-result-database"
 order:
   null

@@ -17,36 +17,30 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-words:
-  # healthcare.pharmacy.pharmaceutical-analysis
-  - "viscosity"
-  - "drainage"
-  - "pipette"
-  - "moisture"
-  - "distortion"
-  - "analyte"
-  - "burette"
-  - "rinse"
-  - "grease"
-  - "meniscus"
-  - "capillary"
-  - "disintegrate"
-  - "intact"
-  - "deviation"
-  - "progeny"
-  - "coaxial"
-  - "inert"
-  - "progeny"
-  - "supersede"
-  - "bombard"
-  - "rhenium"
-  - "tungsten"
-  - "eluent"
-  - "aerosol"
-  - "bureaucratic"
-  # engineering.computer.software.verifications.lean4
-  - "amenable"
-  - "interlude"
-  - "auxiliary"
-  # natural-science.biology.bioinformatics.structural.prediction
-  - "notoriously"
+textbooks:
+  null
+tests:
+  null
+papers:
+  - id: "2026-05-snac-db"
+    title: "SNAC-DB: An ML-ready database for antibody and NANOBODY® VHH–antigen complexes with expanded structural diversity and real-world benchmarking"
+    journal: "The Protein Society"
+    doi: "https://doi.org/10.1002/pro.70655"
+    date: "2026-05-15"
+    completed: false
+    order:
+      limitation:
+        - "2026-05-snac-db-limitation"
+  - id: "2026-06-sabdab2"
+    title: "SAbDab2: The structural antibody database in the age of machine learning"
+    journal: "biorxiv"
+    doi: "https://doi.org/10.64898/2026.06.16.732554"
+    date: "2026-06-20"
+    completed: false
+    order:
+      desire:
+        - "2026-06-sabdab2-desire"
+      result:
+        - "2026-06-sabdab2-result-database"
+order:
+  null
